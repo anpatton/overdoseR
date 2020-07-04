@@ -76,4 +76,6 @@ formatted_data <- formatted_data %>%
             epinephrine_admin = sum(epinephrine_admin, na.rm = TRUE),
             opioid_agonist_success = sum(opioid_agonist_success, na.rm = TRUE))
 
+dat <- read_csv("C:/Users/anpat/OneDrive/Desktop/masterEMS.csv")[1:1000, ]
 
+result <- format_multirow_ems_data(data_in = dat)

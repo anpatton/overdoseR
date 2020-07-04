@@ -32,6 +32,45 @@ remove_stop_words <- function(str, stop_words, remove_numbers = TRUE) {
 
 }
 
+make_one_hot <- function(row_data_in,
+                         word_tokens = words,
+                         bigram_tokens = bigrams,
+                         trigram_tokens = trigrams){
+
+  if(is.na(row_data_in) == TRUE) {
+
+    return(c(rep(0, length(words)), rep(0, length(bigrams)), rep(0, length(trigrams))))
+
+  } else {
+
+    word_counts <- str_count(row_data_in, word_tokens)
+    bigram_counts <- str_count(row_data_in, bigram_tokens)
+    trigram_counts <- str_count(row_data_in, trigram_tokens)
+    return(c(word_counts, bigram_counts, trigram_counts))
+
+  }
+
+}
+
+
+
+one_hot_single_row_ems_data <- function(data_in,
+                                        col_to_one_hot = "care_narrative_adj",
+                                        words = pull(select(filter(high_value_terms, type == "word"), token)),
+                                        bigrams = pull(select(filter(high_value_terms, type == "bigram"), token)),
+                                        trigrams = pull(select(filter(high_value_terms, type == "trigram"), token))) {
+
+  message("Tokenizing narrative and one-hot encoding high value terms. \n --- ")
+  one_hot <- data.frame(t(apply(data_in[, which(names(data_in) == col_to_one_hot)], 1, function(x) make_one_hot(row_data_in = x,
+                                                                                                                word_tokens = words,
+                                                                                                                bigram_tokens = bigrams,
+                                                                                                                trigram_tokens = trigrams))))
+  names(one_hot) <- c(words, bigrams, trigrams)
+  return(bind_cols(data_in, one_hot))
+
+}
+
+
 format_multirow_ems_data <- function(data_in,
                                     event_id_name = "CAD Incident Number (eResponse.03)",
                                     patient_first_name = "Patient First Name (ePatient.03)",
@@ -112,7 +151,11 @@ format_multirow_ems_data <- function(data_in,
               epinephrine_admin = sum(epinephrine_admin, na.rm = TRUE),
               opioid_agonist_success = sum(opioid_agonist_success, na.rm = TRUE))
 
-  message(paste0("There are now ", nrow(formatted_data), " unique patient records ready for modeling  \n ---"))
+  #formatted_data <- bind_cols(formatted_data, one_hot_single_row_ems_data(data_in = formatted_data))
+
+  message(paste0("There are now ", nrow(formatted_data), " unique patient records. \n ---"))
   return(formatted_data)
 
 }
+
+
