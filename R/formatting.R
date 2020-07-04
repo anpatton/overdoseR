@@ -1,3 +1,9 @@
+#' Removes stop words from care narratives. Intended to be used internally with apply.
+#'
+#' @param str String of single narrative
+#' @param stop_words Corpus of stop words to use, defaults to tidytext::stop_words
+#' @param remove_numbers Logical flag to remove numbers from text
+#' @return Cleaned narrative
 
 remove_stop_words <- function(str, stop_words, remove_numbers = TRUE) {
 
@@ -32,6 +38,14 @@ remove_stop_words <- function(str, stop_words, remove_numbers = TRUE) {
 
 }
 
+#' Creates one-hot-matrix of terms in narrative. Intended to be used internally with apply.
+#'
+#' @param row_data_in String of single narrative
+#' @param word_tokens Words to tokenize on
+#' @param bigram_tokens Bigrams to tokenize on
+#' @param trigram_tokens Trigrams to tokenize on
+#' @return Vector of one-hot terms
+
 make_one_hot <- function(row_data_in,
                          word_tokens = words,
                          bigram_tokens = bigrams,
@@ -53,6 +67,16 @@ make_one_hot <- function(row_data_in,
 }
 
 
+#' Creates one-hot-matrix of terms in narrative and binds to data.
+#'
+#' @param data_in Formatted data to use
+#' @param col_to_one_hot Field name for specific narrative to one-hot
+#' @param words Words to tokenize on, defaults to high_value_terms
+#' @param bigrams Bigrams to tokenize on, defaults to high_value_terms
+#' @param trigrams Trigrams to tokenize on, defaults to high_value_terms
+#' @return Dataframe of inputted data and one-hot fields
+#' @examples
+#'one_hot_single_row_ems_data(formatted_data_frame)
 
 one_hot_single_row_ems_data <- function(data_in,
                                         col_to_one_hot = "care_narrative_adj",
@@ -61,15 +85,33 @@ one_hot_single_row_ems_data <- function(data_in,
                                         trigrams = pull(select(filter(high_value_terms, type == "trigram"), token))) {
 
   message("Tokenizing narrative and one-hot encoding high value terms. \n --- ")
-  one_hot <- data.frame(t(apply(data_in[, which(names(data_in) == col_to_one_hot)], 1, function(x) make_one_hot(row_data_in = x,
-                                                                                                                word_tokens = words,
-                                                                                                                bigram_tokens = bigrams,
-                                                                                                                trigram_tokens = trigrams))))
+  one_hot <- data.frame(t(apply(data_in[, which(names(data_in) == col_to_one_hot)], 1,
+                                function(x) make_one_hot(row_data_in = x,
+                                                         word_tokens = words,
+                                                         bigram_tokens = bigrams,
+                                                         trigram_tokens = trigrams))))
   names(one_hot) <- c(words, bigrams, trigrams)
   return(bind_cols(data_in, one_hot))
 
 }
 
+#' Converts multi-row data to single row data
+#'
+#' @param data_in raw EMS data to use
+#' @param event_id_name Name of id column, defaults to "CAD Incident Number (eResponse.03)",
+#' @param patient_first_name Name of first name column, defaults to "Patient First Name (ePatient.03)",
+#' @param patient_last_name Name of last name column, defaults to (ePatient.02)",
+#' @param patient_age_name Name of age column, defaults to (ePatient.15)",
+#' @param primary_impression_name Name of primary impression column, defaults to "Situation Provider Primary Impression (eSituation.11)",
+#' @param primary_complaint_name Name of primary complaint column, defaults to "Situation Primary Complaint Statement List (eSituation.04)",
+#' @param care_narrative_name Name of care narrative column, defaults to "Patient Care Report Narrative (eNarrative.01)",
+#' @param medication_given_name Name of medication administered column, defaults to "Medication Given Description (eMedications.03)",
+#' @param medication_response_name Name of medication response column, defaults to "Medication Response (eMedications.07)",
+#' @param remove_numbers_from_text Logical flag to remove numbers from text
+#' @param stop_words Corpus of stop words, defaults to tidytext::stop_words
+#' @return One row per record dataframe of inputted data and one-hot fields
+#' @examples
+#' format_multirow_ems_data(data_in = raw_ems_data)
 
 format_multirow_ems_data <- function(data_in,
                                     event_id_name = "CAD Incident Number (eResponse.03)",
@@ -123,11 +165,19 @@ format_multirow_ems_data <- function(data_in,
     unique()
 
   message("Tabulating medication administrations and responses  \n ---")
-  opioid_agonist_admin <- apply(formatted_data, 1, function(x) grepl("naloxone|narcan", x[which(names(formatted_data) == medication_given_name)], ignore.case = TRUE))
-  opioid_pain_admin <- apply(formatted_data, 1, function(x) grepl("morphine|fentanyl", x[which(names(formatted_data) == medication_given_name)], ignore.case = TRUE))
-  benzodiazepine_admin <- apply(formatted_data, 1, function(x) grepl("midozolam|diazepam", x[which(names(formatted_data) == medication_given_name)], ignore.case = TRUE))
-  epinephrine_admin <- apply(formatted_data, 1, function(x) grepl("epi ", x[which(names(formatted_data) == medication_given_name)], ignore.case = TRUE))
-  response_to_admin <- apply(formatted_data, 1, function(x) grepl("improved", x[which(names(formatted_data) == medication_response_name)], ignore.case = TRUE))
+  med_admin_col <- which(names(formatted_data) == medication_given_name)
+  med_resp_col <- which(names(formatted_data) == medication_response_name)
+
+  opioid_agonist_admin <- apply(formatted_data, 1,
+                                function(x) grepl("naloxone|narcan", x[med_admin_col], ignore.case = TRUE))
+  opioid_pain_admin <- apply(formatted_data, 1,
+                             function(x) grepl("morphine|fentanyl", x[med_admin_col], ignore.case = TRUE))
+  benzodiazepine_admin <- apply(formatted_data, 1,
+                                function(x) grepl("midozolam|diazepam", x[med_admin_col], ignore.case = TRUE))
+  epinephrine_admin <- apply(formatted_data, 1,
+                             function(x) grepl("epi ", x[med_admin_col], ignore.case = TRUE))
+  response_to_admin <- apply(formatted_data, 1,
+                             function(x) grepl("improved", x[med_resp_col], ignore.case = TRUE))
 
   formatted_data <- formatted_data %>%
     mutate(opioid_agonist_admin = opioid_agonist_admin) %>%
@@ -150,8 +200,6 @@ format_multirow_ems_data <- function(data_in,
               benzodiazepine_admin = sum(benzodiazepine_admin, na.rm = TRUE),
               epinephrine_admin = sum(epinephrine_admin, na.rm = TRUE),
               opioid_agonist_success = sum(opioid_agonist_success, na.rm = TRUE))
-
-  #formatted_data <- bind_cols(formatted_data, one_hot_single_row_ems_data(data_in = formatted_data))
 
   message(paste0("There are now ", nrow(formatted_data), " unique patient records. \n ---"))
   return(formatted_data)

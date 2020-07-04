@@ -76,6 +76,13 @@ formatted_data <- formatted_data %>%
             epinephrine_admin = sum(epinephrine_admin, na.rm = TRUE),
             opioid_agonist_success = sum(opioid_agonist_success, na.rm = TRUE))
 
-dat <- read_csv("C:/Users/anpat/OneDrive/Desktop/masterEMS.csv")[1:1000, ]
 
-result <- format_multirow_ems_data(data_in = dat)
+
+dat <- read_csv("C:/Users/anpat/OneDrive/Desktop/masterEMS.csv")[1:1000, ]
+high_value_terms <- read_csv("high_value_terms.csv")
+
+
+result <- format_multirow_ems_data(data_in = dat) %>%
+  one_hot_single_row_ems_data()
+
+save(high_value_terms, file = "high_value_terms.Rdata")
