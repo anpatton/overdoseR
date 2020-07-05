@@ -47,13 +47,13 @@ remove_stop_words <- function(str, stop_words, remove_numbers = TRUE) {
 #' @return Vector of one-hot terms
 
 make_one_hot <- function(row_data_in,
-                         word_tokens = words,
-                         bigram_tokens = bigrams,
-                         trigram_tokens = trigrams){
+                         word_tokens,
+                         bigram_tokens,
+                         trigram_tokens){
 
   if(is.na(row_data_in) == TRUE) {
 
-    return(c(rep(0, length(words)), rep(0, length(bigrams)), rep(0, length(trigrams))))
+    return(c(rep(0, length(word_tokens)), rep(0, length(bigram_tokens)), rep(0, length(trigram_tokens))))
 
   } else {
 
@@ -90,8 +90,12 @@ one_hot_single_row_ems_data <- function(data_in,
                                                          word_tokens = words,
                                                          bigram_tokens = bigrams,
                                                          trigram_tokens = trigrams))))
-  names(one_hot) <- c(words, bigrams, trigrams)
-  return(bind_cols(data_in, one_hot))
+
+  colnames(one_hot) <- gsub(" ", "_", c(words, bigrams, trigrams))
+
+  return(bind_cols(data_in, one_hot) %>% ungroup())
+
+
 
 }
 
@@ -178,6 +182,11 @@ format_multirow_ems_data <- function(data_in,
                              function(x) grepl("epi ", x[med_admin_col], ignore.case = TRUE))
   response_to_admin <- apply(formatted_data, 1,
                              function(x) grepl("improved", x[med_resp_col], ignore.case = TRUE))
+  drug_related_pi <- apply(formatted_data, 1,
+                           function(x) grepl("overdose|behavioral|altered", x[primary_impression_name], ignore.case = TRUE))
+  traumatic_injury_pi <- apply(formatted_data, 1,
+                               function(x) grepl("traumatic", x[primary_impression_name], ignore.case = TRUE))
+
 
   formatted_data <- formatted_data %>%
     mutate(opioid_agonist_admin = opioid_agonist_admin) %>%
@@ -186,6 +195,8 @@ format_multirow_ems_data <- function(data_in,
     mutate(epinephrine_admin = epinephrine_admin) %>%
     mutate(response_to_admin = response_to_admin) %>%
     mutate(opioid_agonist_success = ifelse(opioid_agonist_admin == TRUE & response_to_admin == TRUE, 1, 0)) %>%
+    mutate(drug_related_pi = drug_related_pi) %>%
+    mutate(traumatic_injury_pi = traumatic_injury_pi) %>%
     group_by(!!sym(event_id_name),
              !!sym(patient_first_name),
              !!sym(patient_last_name),
@@ -199,7 +210,10 @@ format_multirow_ems_data <- function(data_in,
     summarise(opioid_agonist_admin = sum(opioid_agonist_admin, na.rm = TRUE),
               benzodiazepine_admin = sum(benzodiazepine_admin, na.rm = TRUE),
               epinephrine_admin = sum(epinephrine_admin, na.rm = TRUE),
-              opioid_agonist_success = sum(opioid_agonist_success, na.rm = TRUE))
+              opioid_agonist_success = sum(opioid_agonist_success, na.rm = TRUE),
+              drug_related_pi = max(drug_related_pi),
+              traumatic_injury_pi = max(traumatic_injury_pi)) %>%
+    ungroup()
 
   message(paste0("There are now ", nrow(formatted_data), " unique patient records. \n ---"))
   return(formatted_data)

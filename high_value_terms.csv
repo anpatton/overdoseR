@@ -1,198 +1,189 @@
-"","token","freqYES","freqNO","type"
-"1","attempt",0.00163098878695209,0.000139416294692965,"word"
-"2","booking",0.000407747196738022,0,"word"
-"3","bottles",0.00122324159021407,5.19857370041565e-05,"word"
-"4","boyfriend",0.00163098878695209,7.79786055062347e-05,"word"
-"5","cocaine",0.000815494393476045,1.65409163195043e-05,"word"
-"6","deputies",0.000611620795107034,0,"word"
-"7","drug",0.00407747196738022,0.000196128007788409,"word"
-"8","empty",0.00122324159021407,5.90747011410869e-05,"word"
-"9","fetanyl",0.000611620795107034,0,"word"
-"10","harm",0.00101936799184506,5.43487250498e-05,"word"
-"11","herion",0.000407747196738022,0,"word"
-"12","heroin",0.00448521916411825,0,"word"
-"13","heroine",0.000611620795107034,0,"word"
-"14","hydrocodone",0.000815494393476045,7.08896413693043e-06,"word"
-"15","ineffective",0.000407747196738022,0,"word"
-"16","inform",0.000407747196738022,4.72597609128695e-06,"word"
-"17","ingestion",0.000407747196738022,4.72597609128695e-06,"word"
-"18","injecting",0.000407747196738022,0,"word"
-"19","intent",0.000407747196738022,0,"word"
-"20","knowledge",0.000611620795107034,1.41779282738609e-05,"word"
-"21","lorazepam",0.000611620795107034,7.08896413693043e-06,"word"
-"22","meth",0.00101936799184506,5.67117130954435e-05,"word"
-"23","methadone",0.00203873598369011,2.36298804564348e-05,"word"
-"24","narcan",0.00693170234454638,3.78078087302956e-05,"word"
-"25","narcotic",0.000611620795107034,0,"word"
-"26","norco",0.00122324159021407,2.83558565477217e-05,"word"
-"27","npa",0.00122324159021407,2.59928685020782e-05,"word"
-"28","opiates",0.000407747196738022,0,"word"
-"29","opiods",0.000407747196738022,0,"word"
-"30","overdose",0.00203873598369011,4.72597609128695e-05,"word"
-"31","overdosing",0.000407747196738022,0,"word"
-"32","oxycodone",0.000611620795107034,1.65409163195043e-05,"word"
-"33","oxycontin",0.000407747196738022,4.72597609128695e-06,"word"
-"34","paraphernalia",0.000815494393476045,9.45195218257391e-06,"word"
-"35","pill",0.00101936799184506,4.72597609128695e-05,"word"
-"36","pills",0.00163098878695209,0.000144142270784252,"word"
-"37","pin",0.000611620795107034,9.45195218257391e-06,"word"
-"38","pinpoint",0.00224260958205912,1.41779282738609e-05,"word"
-"39","powder",0.000611620795107034,0,"word"
-"40","pupils",0.0036697247706422,0.000236298804564348,"word"
-"41","respirations",0.00244648318042813,0.000146505258829896,"word"
-"42","snoring",0.000815494393476045,1.89039043651478e-05,"word"
-"43","spd",0.000815494393476045,4.01707967759391e-05,"word"
-"44","suboxone",0.000407747196738022,0,"word"
-"45","substance",0.000815494393476045,3.30818326390087e-05,"word"
-"46","taking",0.0036697247706422,0.000682903545190965,"word"
-"47","thrashing",0.000407747196738022,4.72597609128695e-06,"word"
-"48","tta",0.0018348623853211,0.00017013513928633,"word"
-"49","unresponsive",0.00428134556574924,0.00044187876453533,"word"
-"50","use",0.00224260958205912,0.000212668924107913,"word"
-"51","white",0.00101936799184506,5.43487250498e-05,"word"
-"52","xanax",0.000815494393476045,3.78078087302956e-05,"word"
-"53","administered narcan",0.00326797385620915,0,"bigram"
-"54","alcohol drugs",0.000933706816059757,9.02499924791673e-06,"bigram"
-"55","appeared responsive",0.000933706816059757,0,"bigram"
-"56","bed unresponsive",0.00186741363211951,2.10583315784724e-05,"bigram"
-"57","bedroom pt",0.00140056022408964,4.51249962395836e-05,"bigram"
-"58","boyfriend denied",0.000933706816059757,0,"bigram"
-"59","boyfriend stated",0.00140056022408964,9.02499924791673e-06,"bigram"
-"60","cardiac arrest",0.00280112044817927,0.000213591648867363,"bigram"
-"61","cc intentional",0.000933706816059757,0,"bigram"
-"62","cell pt",0.000933706816059757,0,"bigram"
-"63","coming mouth",0.000933706816059757,9.02499924791673e-06,"bigram"
-"64","crew npd",0.000933706816059757,0,"bigram"
-"65","custody spd",0.000933706816059757,0,"bigram"
-"66","denies taking",0.00326797385620915,0.000126349989470834,"bigram"
-"67","drug paraphernalia",0.00140056022408964,0,"bigram"
-"68","drug use",0.00326797385620915,7.52083270659728e-05,"bigram"
-"69","easily arousable",0.000933706816059757,0,"bigram"
-"70","eyes fixed",0.000933706816059757,6.01666616527782e-06,"bigram"
-"71","fentanyl patch",0.000933706816059757,0,"bigram"
-"72","floor breathing",0.000933706816059757,0,"bigram"
-"73","floor room",0.000933706816059757,9.02499924791673e-06,"bigram"
-"74","found inside",0.000933706816059757,9.02499924791673e-06,"bigram"
-"75","found pinpoint",0.000933706816059757,0,"bigram"
-"76","found unresponsive",0.00186741363211951,4.51249962395836e-05,"bigram"
-"77","front desk",0.000933706816059757,9.02499924791673e-06,"bigram"
-"78","gcs custody",0.000933706816059757,0,"bigram"
-"79","gw medic",0.000933706816059757,9.02499924791673e-06,"bigram"
-"80","heroin cocaine",0.000933706816059757,0,"bigram"
-"81","heroin pt",0.000933706816059757,0,"bigram"
-"82","heroin use",0.000933706816059757,0,"bigram"
-"83","inform patient",0.000933706816059757,0,"bigram"
-"84","inside cell",0.000933706816059757,0,"bigram"
-"85","intent harm",0.000933706816059757,0,"bigram"
-"86","male who",0.000933706816059757,6.01666616527782e-06,"bigram"
-"87","medication bottles",0.000933706816059757,0,"bigram"
-"88","medications alcohol",0.000933706816059757,0,"bigram"
-"89","methadone clinic",0.000933706816059757,0,"bigram"
-"90","methadone pt",0.00140056022408964,0,"bigram"
-"91","mg methadone",0.000933706816059757,0,"bigram"
-"92","mg narcan",0.00466853408029879,2.40666646611113e-05,"bigram"
-"93","mgh at",0.000933706816059757,9.02499924791673e-06,"bigram"
-"94","narcan administered",0.000933706816059757,6.01666616527782e-06,"bigram"
-"95","narcan administration",0.000933706816059757,0,"bigram"
-"96","narcan given",0.00186741363211951,0,"bigram"
-"97","narcan improvement",0.000933706816059757,0,"bigram"
-"98","narcan iv",0.000933706816059757,0,"bigram"
-"99","narcan pt",0.00233426704014939,0,"bigram"
-"100","oriented events",0.000933706816059757,0,"bigram"
-"101","overdose pt",0.00140056022408964,0,"bigram"
-"102","painful stimuli",0.00233426704014939,0.000108299990975001,"bigram"
-"103","paraphernalia found",0.000933706816059757,0,"bigram"
-"104","paraphernalia scene",0.000933706816059757,0,"bigram"
-"105","patent airway",0.000933706816059757,1.20333323305556e-05,"bigram"
-"106","patient overdosing",0.000933706816059757,0,"bigram"
-"107","pd informs",0.000933706816059757,0,"bigram"
-"108","pin pupils",0.000933706816059757,0,"bigram"
-"109","pinpoint pupils",0.00280112044817927,0,"bigram"
-"110","positive respiratory",0.000933706816059757,0,"bigram"
-"111","post narcan",0.000933706816059757,0,"bigram"
-"112","potential overdose",0.000933706816059757,0,"bigram"
-"113","prison staff",0.000933706816059757,1.20333323305556e-05,"bigram"
-"114","pt heroin",0.00140056022408964,0,"bigram"
-"115","pt medication",0.00140056022408964,4.51249962395836e-05,"bigram"
-"116","pt narcan",0.000933706816059757,0,"bigram"
-"117","pt slowly",0.00140056022408964,2.10583315784724e-05,"bigram"
-"118","pt unresponsive",0.00233426704014939,9.9274991727084e-05,"bigram"
-"119","pts girlfriend",0.000933706816059757,1.20333323305556e-05,"bigram"
-"120","pts respirations",0.000933706816059757,6.01666616527782e-06,"bigram"
-"121","pupils found",0.000933706816059757,0,"bigram"
-"122","pupils pinpoint",0.000933706816059757,9.02499924791673e-06,"bigram"
-"123","pupils pt",0.000933706816059757,9.02499924791673e-06,"bigram"
-"124","purposeful movements",0.000933706816059757,1.20333323305556e-05,"bigram"
-"125","rate drive",0.000933706816059757,0,"bigram"
-"126","respiratory rate",0.00233426704014939,9.9274991727084e-05,"bigram"
-"127","respond questions",0.00140056022408964,1.80499984958335e-05,"bigram"
-"128","responders the",0.000933706816059757,0,"bigram"
-"129","response to",0.000933706816059757,0,"bigram"
-"130","responsive pt",0.000933706816059757,6.01666616527782e-06,"bigram"
-"131","s bg",0.000933706816059757,0,"bigram"
-"132","snoring respirations",0.00186741363211951,1.80499984958335e-05,"bigram"
-"133","t medic",0.000933706816059757,1.20333323305556e-05,"bigram"
-"134","taking today",0.000933706816059757,0,"bigram"
-"135","the pt",0.0168067226890756,0.00514424957131254,"bigram"
-"136","tolerate npa",0.000933706816059757,0,"bigram"
-"137","total mg",0.00186741363211951,7.52083270659728e-05,"bigram"
-"138","units arrived",0.000933706816059757,1.20333323305556e-05,"bigram"
-"139","west block",0.000933706816059757,0,"bigram"
-"140","wet pavement",0.000933706816059757,0,"bigram"
-"141","white powder",0.00140056022408964,0,"bigram"
-"142","administered mg narcan",0.00360144057623049,9.6929750163569e-06,"trigram"
-"143","all times approximate",0.0180072028811525,0.00277703734218625,"trigram"
-"144","ao gcs custody",0.00240096038415366,0,"trigram"
-"145","appeared responsive pt",0.00240096038415366,0,"trigram"
-"146","boyfriend stated pt",0.00240096038415366,0,"trigram"
-"147","code bls mgh",0.00240096038415366,1.93859500327138e-05,"trigram"
-"148","complaints head toe",0.00240096038415366,2.90789250490707e-05,"trigram"
-"149","denies complaints head",0.00240096038415366,0,"trigram"
-"150","denies taking medications",0.00240096038415366,0,"trigram"
-"151","denies taking today",0.00240096038415366,0,"trigram"
-"152","drug paraphernalia found",0.00240096038415366,0,"trigram"
-"153","established total mg",0.00240096038415366,3.87719000654276e-05,"trigram"
-"154","eyes fixed dilated",0.00240096038415366,9.6929750163569e-06,"trigram"
-"155","found inside cell",0.00240096038415366,0,"trigram"
-"156","found scene pt",0.00240096038415366,0,"trigram"
-"157","gurney ambulance obtained",0.00240096038415366,1.45394625245353e-05,"trigram"
-"158","handed nurse change",0.00240096038415366,1.93859500327138e-05,"trigram"
-"159","incident gw medic",0.00240096038415366,1.45394625245353e-05,"trigram"
-"160","kill herself pt",0.00240096038415366,1.45394625245353e-05,"trigram"
-"161","lying supine floor",0.00360144057623049,0.000101776237671747,"trigram"
-"162","m scene yo",0.00240096038415366,2.90789250490707e-05,"trigram"
-"163","male who was",0.00240096038415366,9.6929750163569e-06,"trigram"
-"164","mgh at mgh",0.00240096038415366,9.6929750163569e-06,"trigram"
-"165","narcan administration pt",0.00240096038415366,0,"trigram"
-"166","narcan given pt",0.00360144057623049,0,"trigram"
-"167","no change patient",0.00360144057623049,0.000116315700196283,"trigram"
-"168","noted physical assessment",0.00240096038415366,3.87719000654276e-05,"trigram"
-"169","npd scene yo",0.00240096038415366,0,"trigram"
-"170","oral trauma pt",0.00240096038415366,2.42324375408922e-05,"trigram"
-"171","patent airway pt",0.00240096038415366,0,"trigram"
-"172","pinpoint pupils pt",0.00240096038415366,0,"trigram"
-"173","pt administered narcan",0.00360144057623049,0,"trigram"
-"174","pt appeared responsive",0.00240096038415366,0,"trigram"
-"175","pt condition improved",0.00240096038415366,1.93859500327138e-05,"trigram"
-"176","pt denies etoh",0.00240096038415366,9.6929750163569e-06,"trigram"
-"177","pt found unresponsive",0.00240096038415366,3.87719000654276e-05,"trigram"
-"178","pt loaded flat",0.00240096038415366,2.42324375408922e-05,"trigram"
-"179","pt positive respiratory",0.00240096038415366,0,"trigram"
-"180","pt reports taking",0.00240096038415366,2.90789250490707e-05,"trigram"
-"181","pt respiratory rate",0.00240096038415366,0,"trigram"
-"182","pt slow respond",0.00240096038415366,2.90789250490707e-05,"trigram"
-"183","report handed nurse",0.00240096038415366,2.42324375408922e-05,"trigram"
-"184","respiratory rate drive",0.00240096038415366,0,"trigram"
-"185","responders the pt",0.00240096038415366,0,"trigram"
-"186","revealed patient agitated",0.00240096038415366,0,"trigram"
-"187","room the pt",0.00240096038415366,2.90789250490707e-05,"trigram"
-"188","signs oral trauma",0.00240096038415366,2.42324375408922e-05,"trigram"
-"189","sinus tach pt",0.00240096038415366,2.90789250490707e-05,"trigram"
-"190","slow respond questions",0.00360144057623049,1.45394625245353e-05,"trigram"
-"191","stable pt care",0.00360144057623049,0.000121162187704461,"trigram"
-"192","times approximate arrived",0.00600240096038415,0.000392565488162454,"trigram"
-"193","total mg narcan",0.00360144057623049,0,"trigram"
-"194","transport full pt",0.00240096038415366,2.42324375408922e-05,"trigram"
-"195","trauma assessment pt",0.00240096038415366,1.45394625245353e-05,"trigram"
-"196","was able to",0.00240096038415366,2.90789250490707e-05,"trigram"
-"197","yo male who",0.00240096038415366,9.6929750163569e-06,"trigram"
+token,freqYES,freqNO,type
+administered mg narcan,0.003601441,9.69E-06,trigram
+administered narcan,0.003267974,0,bigram
+alcohol drugs,0.000933707,9.02E-06,bigram
+all times approximate,0.018007203,0.002777037,trigram
+ao gcs custody,0.00240096,0,trigram
+appeared responsive,0.000933707,0,bigram
+appeared responsive pt,0.00240096,0,trigram
+attempt,0.001630989,0.000139416,word
+bed unresponsive,0.001867414,2.11E-05,bigram
+bedroom pt,0.00140056,4.51E-05,bigram
+booking,0.000407747,0,word
+bottles,0.001223242,5.20E-05,word
+boyfriend,0.001630989,7.80E-05,word
+boyfriend denied,0.000933707,0,bigram
+boyfriend stated,0.00140056,9.02E-06,bigram
+boyfriend stated pt,0.00240096,0,trigram
+cardiac arrest,0.00280112,0.000213592,bigram
+cc intentional,0.000933707,0,bigram
+cell pt,0.000933707,0,bigram
+cocaine,0.000815494,1.65E-05,word
+coming mouth,0.000933707,9.02E-06,bigram
+complaints head toe,0.00240096,2.91E-05,trigram
+denies complaints head,0.00240096,0,trigram
+denies taking,0.003267974,0.00012635,bigram
+denies taking medications,0.00240096,0,trigram
+denies taking today,0.00240096,0,trigram
+deputies,0.000611621,0,word
+drug,0.004077472,0.000196128,word
+drug paraphernalia,0.00140056,0,bigram
+drug paraphernalia found,0.00240096,0,trigram
+drug use,0.003267974,7.52E-05,bigram
+easily arousable,0.000933707,0,bigram
+empty,0.001223242,5.91E-05,word
+established total mg,0.00240096,3.88E-05,trigram
+eyes fixed,0.000933707,6.02E-06,bigram
+eyes fixed dilated,0.00240096,9.69E-06,trigram
+fentanyl patch,0.000933707,0,bigram
+fetanyl,0.000611621,0,word
+floor breathing,0.000933707,0,bigram
+floor room,0.000933707,9.02E-06,bigram
+found inside,0.000933707,9.02E-06,bigram
+found inside cell,0.00240096,0,trigram
+found pinpoint,0.000933707,0,bigram
+found scene pt,0.00240096,0,trigram
+found unresponsive,0.001867414,4.51E-05,bigram
+front desk,0.000933707,9.02E-06,bigram
+gcs custody,0.000933707,0,bigram
+gurney ambulance obtained,0.00240096,1.45E-05,trigram
+gw medic,0.000933707,9.02E-06,bigram
+handed nurse change,0.00240096,1.94E-05,trigram
+harm,0.001019368,5.43E-05,word
+herion,0.000407747,0,word
+heroin,0.004485219,0,word
+heroin cocaine,0.000933707,0,bigram
+heroin pt,0.000933707,0,bigram
+heroin use,0.000933707,0,bigram
+heroine,0.000611621,0,word
+hydrocodone,0.000815494,7.09E-06,word
+incident gw medic,0.00240096,1.45E-05,trigram
+ineffective,0.000407747,0,word
+inform,0.000407747,4.73E-06,word
+inform patient,0.000933707,0,bigram
+ingestion,0.000407747,4.73E-06,word
+injecting,0.000407747,0,word
+inside cell,0.000933707,0,bigram
+intent,0.000407747,0,word
+intent harm,0.000933707,0,bigram
+kill herself pt,0.00240096,1.45E-05,trigram
+knowledge,0.000611621,1.42E-05,word
+lorazepam,0.000611621,7.09E-06,word
+lying supine floor,0.003601441,0.000101776,trigram
+m scene yo,0.00240096,2.91E-05,trigram
+male who,0.000933707,6.02E-06,bigram
+male who was,0.00240096,9.69E-06,trigram
+medication bottles,0.000933707,0,bigram
+medications alcohol,0.000933707,0,bigram
+meth,0.001019368,5.67E-05,word
+methadone,0.002038736,2.36E-05,word
+methadone clinic,0.000933707,0,bigram
+methadone pt,0.00140056,0,bigram
+mg methadone,0.000933707,0,bigram
+mg narcan,0.004668534,2.41E-05,bigram
+narcan,0.006931702,3.78E-05,word
+narcan administered,0.000933707,6.02E-06,bigram
+narcan administration,0.000933707,0,bigram
+narcan administration pt,0.00240096,0,trigram
+narcan given,0.001867414,0,bigram
+narcan given pt,0.003601441,0,trigram
+narcan improvement,0.000933707,0,bigram
+narcan iv,0.000933707,0,bigram
+narcan pt,0.002334267,0,bigram
+narcotic,0.000611621,0,word
+no change patient,0.003601441,0.000116316,trigram
+norco,0.001223242,2.84E-05,word
+noted physical assessment,0.00240096,3.88E-05,trigram
+npa,0.001223242,2.60E-05,word
+opiates,0.000407747,0,word
+opiods,0.000407747,0,word
+oral trauma pt,0.00240096,2.42E-05,trigram
+oriented events,0.000933707,0,bigram
+overdose,0.002038736,4.73E-05,word
+overdose pt,0.00140056,0,bigram
+overdosing,0.000407747,0,word
+oxycodone,0.000611621,1.65E-05,word
+oxycontin,0.000407747,4.73E-06,word
+painful stimuli,0.002334267,0.0001083,bigram
+paraphernalia,0.000815494,9.45E-06,word
+paraphernalia found,0.000933707,0,bigram
+paraphernalia scene,0.000933707,0,bigram
+patent airway,0.000933707,1.20E-05,bigram
+patent airway pt,0.00240096,0,trigram
+patient overdosing,0.000933707,0,bigram
+pd informs,0.000933707,0,bigram
+pill,0.001019368,4.73E-05,word
+pills,0.001630989,0.000144142,word
+pin,0.000611621,9.45E-06,word
+pin pupils,0.000933707,0,bigram
+pinpoint,0.00224261,1.42E-05,word
+pinpoint pupils,0.00280112,0,bigram
+pinpoint pupils pt,0.00240096,0,trigram
+positive respiratory,0.000933707,0,bigram
+post narcan,0.000933707,0,bigram
+potential overdose,0.000933707,0,bigram
+powder,0.000611621,0,word
+prison staff,0.000933707,1.20E-05,bigram
+pt administered narcan,0.003601441,0,trigram
+pt appeared responsive,0.00240096,0,trigram
+pt condition improved,0.00240096,1.94E-05,trigram
+pt denies etoh,0.00240096,9.69E-06,trigram
+pt found unresponsive,0.00240096,3.88E-05,trigram
+pt heroin,0.00140056,0,bigram
+pt loaded flat,0.00240096,2.42E-05,trigram
+pt medication,0.00140056,4.51E-05,bigram
+pt narcan,0.000933707,0,bigram
+pt positive respiratory,0.00240096,0,trigram
+pt reports taking,0.00240096,2.91E-05,trigram
+pt respiratory rate,0.00240096,0,trigram
+pt slow respond,0.00240096,2.91E-05,trigram
+pt slowly,0.00140056,2.11E-05,bigram
+pt unresponsive,0.002334267,9.93E-05,bigram
+pts girlfriend,0.000933707,1.20E-05,bigram
+pts respirations,0.000933707,6.02E-06,bigram
+pupils,0.003669725,0.000236299,word
+pupils found,0.000933707,0,bigram
+pupils pinpoint,0.000933707,9.02E-06,bigram
+pupils pt,0.000933707,9.02E-06,bigram
+purposeful movements,0.000933707,1.20E-05,bigram
+rate drive,0.000933707,0,bigram
+report handed nurse,0.00240096,2.42E-05,trigram
+respirations,0.002446483,0.000146505,word
+respiratory rate,0.002334267,9.93E-05,bigram
+respiratory rate drive,0.00240096,0,trigram
+respond questions,0.00140056,1.80E-05,bigram
+responders the,0.000933707,0,bigram
+responders the pt,0.00240096,0,trigram
+response to,0.000933707,0,bigram
+responsive pt,0.000933707,6.02E-06,bigram
+revealed patient agitated,0.00240096,0,trigram
+room the pt,0.00240096,2.91E-05,trigram
+s bg,0.000933707,0,bigram
+signs oral trauma,0.00240096,2.42E-05,trigram
+sinus tach pt,0.00240096,2.91E-05,trigram
+slow respond questions,0.003601441,1.45E-05,trigram
+snoring,0.000815494,1.89E-05,word
+snoring respirations,0.001867414,1.80E-05,bigram
+stable pt care,0.003601441,0.000121162,trigram
+suboxone,0.000407747,0,word
+substance,0.000815494,3.31E-05,word
+t medic,0.000933707,1.20E-05,bigram
+taking,0.003669725,0.000682904,word
+taking today,0.000933707,0,bigram
+the pt,0.016806723,0.00514425,bigram
+thrashing,0.000407747,4.73E-06,word
+times approximate arrived,0.006002401,0.000392565,trigram
+tolerate npa,0.000933707,0,bigram
+total mg,0.001867414,7.52E-05,bigram
+total mg narcan,0.003601441,0,trigram
+transport full pt,0.00240096,2.42E-05,trigram
+trauma assessment pt,0.00240096,1.45E-05,trigram
+tta,0.001834862,0.000170135,word
+units arrived,0.000933707,1.20E-05,bigram
+unresponsive,0.004281346,0.000441879,word
+use,0.00224261,0.000212669,word
+was able to,0.00240096,2.91E-05,trigram
+white,0.001019368,5.43E-05,word
+white powder,0.00140056,0,bigram
+xanax,0.000815494,3.78E-05,word
+yo male who,0.00240096,9.69E-06,trigram
