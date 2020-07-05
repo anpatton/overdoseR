@@ -3,3 +3,5 @@
 .RData
 .Ruserdata
 Overdose/
+inst/doc
+vignettes/test.Rmd

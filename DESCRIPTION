@@ -25,3 +25,7 @@ Imports:
     mlr,
     xgboost,
     e1071
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
