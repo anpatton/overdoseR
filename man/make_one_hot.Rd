@@ -4,12 +4,7 @@
 \alias{make_one_hot}
 \title{Creates one-hot-matrix of terms in narrative. Intended to be used internally with apply.}
 \usage{
-make_one_hot(
-  row_data_in,
-  word_tokens = words,
-  bigram_tokens = bigrams,
-  trigram_tokens = trigrams
-)
+make_one_hot(row_data_in, word_tokens, bigram_tokens, trigram_tokens)
 }
 \arguments{
 \item{row_data_in}{String of single narrative}

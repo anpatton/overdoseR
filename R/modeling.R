@@ -260,7 +260,7 @@ tune_logistic <- function(training_data,
 #' @return List object with model and test data with predictions
 #' \itemize{
 #'   \item model - Fitted XGBoost object
-#'   \item tune_obj - Tun
+#'   \item tune_obj - XGBoost tuning object
 #'   \item results - Test data with predictions
 #' }
 #' @examples
