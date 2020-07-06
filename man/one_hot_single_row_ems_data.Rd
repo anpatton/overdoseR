@@ -19,13 +19,15 @@ one_hot_single_row_ems_data(
 \arguments{
 \item{data_in}{Formatted data to use}
 
+\item{narrative_col_to_one_hot}{Field name for specific narrative to one-hot}
+
+\item{complaint_col_to_one_hot}{Field name for specific complaint to one-hot}
+
 \item{words}{Words to tokenize on, defaults to high_value_terms}
 
 \item{bigrams}{Bigrams to tokenize on, defaults to high_value_terms}
 
 \item{trigrams}{Trigrams to tokenize on, defaults to high_value_terms}
-
-\item{col_to_one_hot}{Field name for specific narrative to one-hot}
 }
 \value{
 Dataframe of inputted data and one-hot fields from narrative and primary complaint (pc_)

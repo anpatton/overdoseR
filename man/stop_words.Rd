@@ -4,11 +4,13 @@
 \name{stop_words}
 \alias{stop_words}
 \title{Stop Words}
-\format{A data frame with 1149 rows and 2 variables:
+\format{
+A data frame with 1149 rows and 2 variables:
 \describe{
   \item{word}{actual token}
   \item{lexicon}{lexicon the stop word comes from}
-}}
+}
+}
 \usage{
 stop_words
 }

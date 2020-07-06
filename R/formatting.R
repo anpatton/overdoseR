@@ -74,7 +74,8 @@ make_one_hot <- function(row_data_in,
 #' Creates one-hot-matrix of terms in narrative and binds to data.
 #'
 #' @param data_in Formatted data to use
-#' @param col_to_one_hot Field name for specific narrative to one-hot
+#' @param narrative_col_to_one_hot Field name for specific narrative to one-hot
+#' @param complaint_col_to_one_hot Field name for specific complaint to one-hot
 #' @param words Words to tokenize on, defaults to high_value_terms
 #' @param bigrams Bigrams to tokenize on, defaults to high_value_terms
 #' @param trigrams Trigrams to tokenize on, defaults to high_value_terms
@@ -111,7 +112,7 @@ one_hot_single_row_ems_data <- function(data_in,
 
 
 
-  return(dplyr::bind_cols(data_in, bind_cols(one_hot_complaint, one_hot_narrative)) %>% dplyr::ungroup())
+  return(dplyr::bind_cols(data_in, dplyr::bind_cols(one_hot_complaint, one_hot_narrative)) %>% dplyr::ungroup())
 
 }
 

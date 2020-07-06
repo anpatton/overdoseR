@@ -4,13 +4,15 @@
 \name{high_value_terms}
 \alias{high_value_terms}
 \title{High Value Terms}
-\format{A data frame with 189 rows and 4 variables:
+\format{
+A data frame with 189 rows and 4 variables:
 \describe{
   \item{token}{actual string of high value term}
   \item{freqYES}{Frequency of term in development set for opioid related events}
   \item{freqNO}{Frequency of term in development set for non-opioid related events}
   \item{type}{word, bigram, or trigram}
-}}
+}
+}
 \usage{
 high_value_terms
 }
