@@ -1,4 +1,4 @@
-# overdoseR <img src="man/figures/logo.png" align="right" />
+# overdoseR <img src="man/figures/logo.PNG" align="right" />
   
   <!-- badges: start -->
   [![Travis build status](https://travis-ci.org/anpatton/overdoseR.svg?branch=master)](https://travis-ci.org/anpatton/overdoseR)
