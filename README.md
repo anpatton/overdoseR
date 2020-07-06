@@ -27,13 +27,13 @@ Information such as medication administered and the response to the medication i
 
 ## 3) Lessons Learned
 
-Based on manual review of tens of thousands of EMS records, certain rule based clinical criteria were found to be high effectively in increasing model accuracy. 
+Based on manual review of tens of thousands of EMS records, certain rule based clinical criteria were found to be high effectively in increasing model accuracy. These flags are indicated by 1 as positive and 0 as negative. They are not applied in the model and are provided for ease of use post prediction.
 
-1. If an event had a cardiac related primary impression and did not have a positive naloxone response, it was coded as not an opioid related event
+1. If an event had a cardiac related primary impression and did not have a positive naloxone response, it was coded as not an opioid related event - `cardiac_flag`
 
-1.	If an event occurred in a patient under the age of 18 or over the age of 70 without a positive naloxone response, it was coded as not an opioid related event
+1.	If an event occurred in a patient under the age of 18 or over the age of 70 without a positive naloxone response, it was coded as not an opioid related event - `age_flag`
 
-1.	If an event had a positive naloxone response, it was coded as an opioid related event regardless of other information
+1.	If an event had a positive naloxone response, it was coded as an opioid related event regardless of other information - `opioid_agonist_success`
 
 # How do I use overdoseR
 
