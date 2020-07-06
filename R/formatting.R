@@ -218,10 +218,13 @@ format_multirow_ems_data <- function(data_in,
                      drug_related_pi = max(.data$drug_related_pi),
                      traumatic_injury_pi = max(.data$traumatic_injury_pi)) %>%
     dplyr::ungroup() %>%
-    dplyr::mutate(cardiac_flag = ifelse((grepl("cardiac", unlist(.[primary_impression_name])) == TRUE
+    dplyr::mutate(cardiac_flag = ifelse((grepl("cardiac", unlist(.[primary_impression_name]), ignore.case = TRUE) == TRUE
                                          & opioid_agonist_success != 1), 1, 0)) %>%
     dplyr::mutate(age_flag = ifelse((unlist(.[patient_age_name]) < 18 | unlist(.[patient_age_name]) > 70
-                                     & opioid_agonist_success != 1), 1, 0))
+                                     & opioid_agonist_success != 1), 1, 0)) %>%
+    mutate(cardiac_flag = ifelse(is.na(cardiac_flag) == TRUE, 0, cardiac_flag)) %>%
+    mutate(age_flag = ifelse(is.na(age_flag) == TRUE, 0, cardiac_flag))
+
 
 
   message(paste0("There are now ", nrow(formatted_data), " unique patient records. \n ---"))
