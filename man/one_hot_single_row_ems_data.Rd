@@ -8,11 +8,11 @@ one_hot_single_row_ems_data(
   data_in,
   col_to_one_hot = "care_narrative_adj",
   words = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms,
-    -.data$type == "word"), -.data$token)),
+    .data$type == "word"), .data$token)),
   bigrams = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms,
-    -.data$type == "bigram"), -.data$token)),
+    .data$type == "bigram"), .data$token)),
   trigrams = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms,
-    -.data$type == "trigram"), -.data$token))
+    .data$type == "trigram"), .data$token))
 )
 }
 \arguments{
