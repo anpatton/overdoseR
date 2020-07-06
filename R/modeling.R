@@ -75,7 +75,18 @@ tune_svm <- function(training_data,
                   "revealed_patient_agitated", "room_the_pt", "signs_oral_trauma",
                   "sinus_tach_pt", "slow_respond_questions", "stable_pt_care",
                   "times_approximate_arrived", "total_mg_narcan", "transport_full_pt",
-                  "trauma_assessment_pt", "was_able_to", "yo_male_who")
+                  "trauma_assessment_pt", "was_able_to", "yo_male_who", "pc_attempt",
+                  "pc_booking", "pc_bottles", "pc_boyfriend", "pc_cocaine", "pc_deputies",
+                  "pc_drug", "pc_empty", "pc_fetanyl", "pc_harm", "pc_herion",
+                  "pc_heroin", "pc_heroine", "pc_hydrocodone", "pc_ineffective",
+                  "pc_inform", "pc_ingestion", "pc_injecting", "pc_intent", "pc_knowledge",
+                  "pc_lorazepam", "pc_meth", "pc_methadone", "pc_narcan", "pc_narcotic",
+                  "pc_norco", "pc_npa", "pc_opiates", "pc_opiods", "pc_overdose",
+                  "pc_overdosing", "pc_oxycodone", "pc_oxycontin", "pc_paraphernalia",
+                  "pc_pill", "pc_pills", "pc_pin", "pc_pinpoint", "pc_powder",
+                  "pc_pupils", "pc_respirations", "pc_snoring", "pc_suboxone",
+                  "pc_substance", "pc_taking", "pc_thrashing", "pc_tta", "pc_unresponsive",
+                  "pc_use", "pc_white", "pc_xanax")
 
     features <- c(target, features)
 
@@ -212,7 +223,18 @@ tune_logistic <- function(training_data,
                   "revealed_patient_agitated", "room_the_pt", "signs_oral_trauma",
                   "sinus_tach_pt", "slow_respond_questions", "stable_pt_care",
                   "times_approximate_arrived", "total_mg_narcan", "transport_full_pt",
-                  "trauma_assessment_pt", "was_able_to", "yo_male_who")
+                  "trauma_assessment_pt", "was_able_to", "yo_male_who", "pc_attempt",
+                  "pc_booking", "pc_bottles", "pc_boyfriend", "pc_cocaine", "pc_deputies",
+                  "pc_drug", "pc_empty", "pc_fetanyl", "pc_harm", "pc_herion",
+                  "pc_heroin", "pc_heroine", "pc_hydrocodone", "pc_ineffective",
+                  "pc_inform", "pc_ingestion", "pc_injecting", "pc_intent", "pc_knowledge",
+                  "pc_lorazepam", "pc_meth", "pc_methadone", "pc_narcan", "pc_narcotic",
+                  "pc_norco", "pc_npa", "pc_opiates", "pc_opiods", "pc_overdose",
+                  "pc_overdosing", "pc_oxycodone", "pc_oxycontin", "pc_paraphernalia",
+                  "pc_pill", "pc_pills", "pc_pin", "pc_pinpoint", "pc_powder",
+                  "pc_pupils", "pc_respirations", "pc_snoring", "pc_suboxone",
+                  "pc_substance", "pc_taking", "pc_thrashing", "pc_tta", "pc_unresponsive",
+                  "pc_use", "pc_white", "pc_xanax")
 
     features <- c(target, features)
 
@@ -332,7 +354,18 @@ tune_xgboost <- function(training_data,
                   "revealed_patient_agitated", "room_the_pt", "signs_oral_trauma",
                   "sinus_tach_pt", "slow_respond_questions", "stable_pt_care",
                   "times_approximate_arrived", "total_mg_narcan", "transport_full_pt",
-                  "trauma_assessment_pt", "was_able_to", "yo_male_who")
+                  "trauma_assessment_pt", "was_able_to", "yo_male_who", "pc_attempt",
+                  "pc_booking", "pc_bottles", "pc_boyfriend", "pc_cocaine", "pc_deputies",
+                  "pc_drug", "pc_empty", "pc_fetanyl", "pc_harm", "pc_herion",
+                  "pc_heroin", "pc_heroine", "pc_hydrocodone", "pc_ineffective",
+                  "pc_inform", "pc_ingestion", "pc_injecting", "pc_intent", "pc_knowledge",
+                  "pc_lorazepam", "pc_meth", "pc_methadone", "pc_narcan", "pc_narcotic",
+                  "pc_norco", "pc_npa", "pc_opiates", "pc_opiods", "pc_overdose",
+                  "pc_overdosing", "pc_oxycodone", "pc_oxycontin", "pc_paraphernalia",
+                  "pc_pill", "pc_pills", "pc_pin", "pc_pinpoint", "pc_powder",
+                  "pc_pupils", "pc_respirations", "pc_snoring", "pc_suboxone",
+                  "pc_substance", "pc_taking", "pc_thrashing", "pc_tta", "pc_unresponsive",
+                  "pc_use", "pc_white", "pc_xanax")
 
     features <- c(target, features)
 

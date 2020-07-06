@@ -100,6 +100,7 @@ one_hot_single_row_ems_data <- function(data_in,
 
   colnames(one_hot_narrative) <- gsub(" ", "_", c(words, bigrams, trigrams))
 
+  message("Tokenizing complaint and one-hot encoding high value terms. \n --- ")
   one_hot_complaint <- data.frame(t(apply(data_in[, which(names(data_in) == complaint_col_to_one_hot)], 1,
                                           function(x) make_one_hot(row_data_in = x,
                                                                    word_tokens = words,
@@ -109,8 +110,6 @@ one_hot_single_row_ems_data <- function(data_in,
   colnames(one_hot_complaint) <- gsub(" ", "_", c(words, "", ""))
   one_hot_complaint <- one_hot_complaint[, 1:(length(one_hot_complaint) - 2)]
   colnames(one_hot_complaint) <- paste0("pc_", names(one_hot_complaint))
-
-
 
   return(dplyr::bind_cols(data_in, dplyr::bind_cols(one_hot_complaint, one_hot_narrative)) %>% dplyr::ungroup())
 
