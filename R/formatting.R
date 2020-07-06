@@ -219,7 +219,7 @@ format_multirow_ems_data <- function(data_in,
     dplyr::ungroup() %>%
     dplyr::mutate(cardiac_flag = ifelse((grepl("cardiac", unlist(.data[primary_impression_name]), ignore.case = TRUE) == TRUE
                                          & .data$opioid_agonist_success != 1), 1, 0)) %>%
-    dplyr::mutate(age_flag = ifelse(((unlist(.[patient_age_name]) < 18 | unlist(.data[patient_age_name]) > 70)
+    dplyr::mutate(age_flag = ifelse(((unlist(.data[patient_age_name]) < 18 | unlist(.data[patient_age_name]) > 70)
                                      & .data$opioid_agonist_success != 1), 1, 0)) %>%
     dplyr::mutate(cardiac_flag = ifelse(is.na(.data$cardiac_flag) == TRUE, 0, .data$cardiac_flag)) %>%
     dplyr::mutate(age_flag = ifelse(is.na(.data$age_flag) == TRUE, 0, .data$age_flag))
