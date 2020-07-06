@@ -88,7 +88,7 @@ The SVM is fit using `e1071::tune` and `e1071::svm`. More information about how 
 
 ## XGBoost
 
-The XGBoost model is tuned and fir using a combination of functions from `xgboost`, `mlr`, and `ParamHelpers`. In order to use the saved model properly on additional test data, you will need to run the following code (or something similar) on the dataframe to be used. The returned result is a list with the model object, tuning object, and the predictions on the test data.
+The XGBoost model is tuned and fit (`classif.xgboost`) using a combination of functions from `xgboost`, `mlr`, and `ParamHelpers`. The returned result from tuning is a list with the model object, tuning object, and the predictions on the test data. In order to use the saved model properly on additional test data, you will need to run the following code (or something similar) on the dataframe to be used. 
 
 ```{r, eval = FALSE, echo = TRUE}
 
