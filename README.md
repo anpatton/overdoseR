@@ -4,8 +4,6 @@
   [![Travis build status](https://travis-ci.org/anpatton/overdoseR.svg?branch=master)](https://travis-ci.org/anpatton/overdoseR)
   <!-- badges: end -->
 
-
-
 # What does overdoseR do?
 
 This package is based entirely on the code underpinning the system outlined in the following talks and presentations.
