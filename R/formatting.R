@@ -190,6 +190,10 @@ format_multirow_ems_data <- function(data_in,
                            function(x) grepl("overdose|behavioral|altered", x[primary_impression_name], ignore.case = TRUE))
   traumatic_injury_pi <- apply(formatted_data, 1,
                                function(x) grepl("traumatic", x[primary_impression_name], ignore.case = TRUE))
+  cardiac_pi <- apply(formatted_data, 1,
+                      function(x) grepl("cardiac", x[primary_impression_name], ignore.case = TRUE))
+
+  age_adj <- apply(formatted_data, 1, function(x) as.numeric(x[patient_age_name]))
 
   formatted_data <- formatted_data %>%
     dplyr::mutate(opioid_agonist_admin = opioid_agonist_admin) %>%
@@ -200,6 +204,8 @@ format_multirow_ems_data <- function(data_in,
     dplyr::mutate(opioid_agonist_success = ifelse(opioid_agonist_admin == TRUE & response_to_admin == TRUE, 1, 0)) %>%
     dplyr::mutate(drug_related_pi = drug_related_pi) %>%
     dplyr::mutate(traumatic_injury_pi = traumatic_injury_pi) %>%
+    dplyr::mutate(cardiac_pi = cardiac_pi) %>%
+    dplyr::mutate(age_adj = age_adj) %>%
     dplyr::group_by(!!dplyr::sym(event_id_name),
                     !!dplyr::sym(patient_first_name),
                     !!dplyr::sym(patient_last_name),
@@ -214,15 +220,16 @@ format_multirow_ems_data <- function(data_in,
                      benzodiazepine_admin = sum(.data$benzodiazepine_admin, na.rm = TRUE),
                      epinephrine_admin = sum(.data$epinephrine_admin, na.rm = TRUE),
                      opioid_agonist_success = sum(.data$opioid_agonist_success, na.rm = TRUE),
-                     drug_related_pi = max(.data$drug_related_pi),
-                     traumatic_injury_pi = max(.data$traumatic_injury_pi)) %>%
+                     drug_related_pi = max(.data$drug_related_pi, na.rm = TRUE),
+                     traumatic_injury_pi = max(.data$traumatic_injury_pi, na.rm = TRUE),
+                     cardiac_pi = max(.data$cardiac_pi, na.rm = TRUE),
+                     age_adj = mean(.data$age_adj, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
-    dplyr::mutate(cardiac_flag = ifelse((grepl("cardiac", unlist(.data[[primary_impression_name]]), ignore.case = TRUE) == TRUE
-                                         & .data$opioid_agonist_success != 1), 1, 0)) %>%
-    dplyr::mutate(age_flag = ifelse(((unlist(.data[[patient_age_name]]) < 18 | unlist(.data[[patient_age_name]]) > 70)
-                                     & .data$opioid_agonist_success != 1), 1, 0)) %>%
+    dplyr::mutate(cardiac_flag = ifelse(.data$cardiac_pi == 1 & .data$opioid_agonist_success == 0, 1, 0)) %>%
     dplyr::mutate(cardiac_flag = ifelse(is.na(.data$cardiac_flag) == TRUE, 0, .data$cardiac_flag)) %>%
-    dplyr::mutate(age_flag = ifelse(is.na(.data$age_flag) == TRUE, 0, .data$age_flag))
+    dplyr::mutate(age_flag = ifelse((.data$age_adj < 18 | .data$age_adj > 70) & .data$opioid_agonist_success == 0, 1, 0)) %>%
+    dplyr::mutate(age_flag = ifelse(is.na(.data$age_flag) == TRUE, 0, .data$age_flag)) %>%
+    dplyr::select(-.data$age_adj, -.data$cardiac_pi)
 
   message(paste0("There are now ", nrow(formatted_data), " unique patient records. \n ---"))
   return(formatted_data)
