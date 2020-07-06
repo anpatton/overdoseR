@@ -106,8 +106,10 @@ one_hot_single_row_ems_data <- function(data_in,
                                                                    trigram_tokens = trigrams))))
 
   colnames(one_hot_complaint) <- gsub(" ", "_", c(words, bigrams, trigrams))
+  drops <- grep("_", names(one_hot_complaint))
+  one_hot_complaint <- one_hot_complaint[, -drops]
   colnames(one_hot_complaint) <- paste0("pc_", names(one_hot_complaint))
-  one_hot_complaint[, -grep("_", names(one_hot_complaint))]
+
 
   return(dplyr::bind_cols(data_in, bind_cols(one_hot_complaint, one_hot_narrative)) %>% dplyr::ungroup())
 
