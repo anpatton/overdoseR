@@ -146,21 +146,21 @@ format_multirow_ems_data <- function(data_in,
                     medication_response_name)
 
   message("Reformatting care narrative  \n ---")
-  care_narrative_adj_list <- tolower(unlist(apply(data_in[, which(names(data_in) == care_narrative_name)],
+  care_narrative_adj <- tolower(unlist(apply(data_in[, which(names(data_in) == care_narrative_name)],
                                              MARGIN = 1,
                                              function(x) remove_stop_words(x, stop_words = stop_words,
                                                                      remove_numbers = remove_numbers_from_text))))
 
   message("Reformatting primary complaint  \n ---")
-  primary_complaint_adj_list <- tolower(unlist(apply(data_in[, which(names(data_in) == primary_complaint_name)],
+  primary_complaint_adj <- tolower(unlist(apply(data_in[, which(names(data_in) == primary_complaint_name)],
                                                 MARGIN = 1,
                                                 function(x) remove_stop_words(x, stop_words = stop_words,
                                                                         remove_numbers = remove_numbers_from_text))))
 
   formatted_data <- data_in %>%
     dplyr::select(cols_to_keep) %>%
-    dplyr::mutate(care_narrative_adj = care_narrative_adj_list) %>%
-    dplyr::mutate(primary_complaint_adj = primary_complaint_adj_list) %>%
+    dplyr::mutate(care_narrative_adj = care_narrative_adj) %>%
+    dplyr::mutate(primary_complaint_adj = primary_complaint_adj) %>%
     dplyr::group_by(!!dplyr::sym(event_id_name),
              !!dplyr::sym(patient_first_name),
              !!dplyr::sym(patient_last_name),
@@ -171,8 +171,6 @@ format_multirow_ems_data <- function(data_in,
     dplyr::mutate(person_event_id = paste0("idx-", dplyr::group_indices())) %>%
     dplyr::ungroup() %>%
     unique()
-
-  rm(care_narrative_adj_list, care_narrative_adj_list)
 
   message("Tabulating medication administrations and responses  \n ---")
   med_admin_col <- which(names(formatted_data) == medication_given_name)
