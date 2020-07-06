@@ -113,10 +113,10 @@ tune_svm <- function(training_data,
                     scale = FALSE,
                     probability = TRUE)
 
-  testing_data <- testing_data %>%
+  testing_data_for_mod <- testing_data %>%
     dplyr::select(features)
 
-  preds <- stats::predict(mod, newdata = testing_data, probability = TRUE)
+  preds <- stats::predict(mod, newdata = testing_data_for_mod, probability = TRUE)
   preds <- unname(attr(preds, "probabilities")[, 2])
 
   testing_data <- testing_data %>%
@@ -233,13 +233,13 @@ tune_logistic <- function(training_data,
                     family = "binomial")
   message("Modeling: Finished \n ---")
 
-  testing_data <- testing_data %>%
+  testing_data_for_mod <- testing_data %>%
     dplyr::select(features)
 
-  preds <- stats::predict(mod, newdata = testing_data, type = "response")
+  preds <- stats::predict(mod, newdata = testing_data_for_mod, type = "response")
 
   testing_data <- testing_data %>%
-    dplyr::select(features) %>%
+    #dplyr::select(features) %>%
     dplyr::mutate(predicted_probability = preds)
 
   if(save_model == TRUE) {
@@ -349,12 +349,12 @@ tune_xgboost <- function(training_data,
     dplyr::select(features) %>%
     dplyr::mutate_all(as.integer)
 
-  testing_data <- testing_data %>%
+  testing_data_for_mod <- testing_data %>%
     dplyr::select(features) %>%
     dplyr::mutate_all(as.integer)
 
   train_task <- mlr::makeClassifTask(data = training_data, target = target, positive = "1")
-  test_task <- mlr::makeClassifTask(data = testing_data, target = target, positive = "1")
+  test_task <- mlr::makeClassifTask(data = testing_data_for_mod, target = target, positive = "1")
 
   #create learner
   learner <- mlr::makeLearner("classif.xgboost", predict.type = "prob")
@@ -396,7 +396,7 @@ tune_xgboost <- function(training_data,
   preds <- stats::predict(mod, test_task)$data$prob.1
 
   testing_data <- testing_data %>%
-    dplyr::select(features) %>%
+    #dplyr::select(features) %>%
     dplyr::mutate(predicted_probability = preds)
 
   if(save_model == TRUE) {
