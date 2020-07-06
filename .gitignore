@@ -5,5 +5,4 @@
 Overdose/
 inst/doc
 vignettes/test.Rmd
-*.png
 R/test_script.R
