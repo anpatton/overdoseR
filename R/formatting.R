@@ -172,6 +172,8 @@ format_multirow_ems_data <- function(data_in,
     dplyr::ungroup() %>%
     unique()
 
+  rm(care_narrative_adj, care_narrative_adj)
+
   message("Tabulating medication administrations and responses  \n ---")
   med_admin_col <- which(names(formatted_data) == medication_given_name)
   med_resp_col <- which(names(formatted_data) == medication_response_name)
@@ -206,7 +208,7 @@ format_multirow_ems_data <- function(data_in,
                     !!dplyr::sym(patient_last_name),
                     !!dplyr::sym(patient_age_name),
                     !!dplyr::sym(primary_impression_name),
-                    -.data$primary_complaint_adj,
+                    primary_complaint_adj,
                     !!dplyr::sym(primary_complaint_name),
                     !!dplyr::sym(care_narrative_name),
                     -.data$care_narrative_adj,
