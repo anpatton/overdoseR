@@ -93,7 +93,7 @@ The logistic regression model is fit with a `glm(family = "binomial")` and retur
 
 ## Support Vector Machine
 
-The SVM is fit using `e1071::tune` and `e1071::svm`. More information about how `e1071` works can be found [here](https://cran.r-project.org/web/packages/e1071/index.html). The returned result from tuning is a list with the model object, tuning object, and the predictions on the test data.
+The SVM is fit using `e1071::tune` and `e1071::svm`. More information about how `e1071` works can be found [here](https://cran.r-project.org/package=e1071). The returned result from tuning is a list with the model object, tuning object, and the predictions on the test data.
 
 ## XGBoost
 
