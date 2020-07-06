@@ -29,9 +29,8 @@ tune_logistic(
 \value{
 List object with model and test data with predictions
 \itemize{
-  \item model - Fitted XGBoost object
+  \item model - Fitted GLM object
   \item results - Test data with predictions
-  \item tune_object - SVM tuning object
 }
 }
 \description{
