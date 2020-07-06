@@ -78,27 +78,38 @@ make_one_hot <- function(row_data_in,
 #' @param words Words to tokenize on, defaults to high_value_terms
 #' @param bigrams Bigrams to tokenize on, defaults to high_value_terms
 #' @param trigrams Trigrams to tokenize on, defaults to high_value_terms
-#' @return Dataframe of inputted data and one-hot fields
+#' @return Dataframe of inputted data and one-hot fields from narrative and primary complaint (pc_)
 #' @examples
 #' \dontrun{one_hot_single_row_ems_data(formatted_data_frame)}
 #' @importFrom rlang .data
 #' @export
 one_hot_single_row_ems_data <- function(data_in,
-                                        col_to_one_hot = "care_narrative_adj",
+                                        narrative_col_to_one_hot = "care_narrative_adj",
+                                        complaint_col_to_one_hot = "primary_complaint_adj",
                                         words = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms, .data$type == "word"), .data$token)),
                                         bigrams = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms, .data$type == "bigram"), .data$token)),
                                         trigrams = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms, .data$type == "trigram"), .data$token))) {
 
   message("Tokenizing narrative and one-hot encoding high value terms. \n --- ")
-  one_hot <- data.frame(t(apply(data_in[, which(names(data_in) == col_to_one_hot)], 1,
-                                function(x) make_one_hot(row_data_in = x,
-                                                         word_tokens = words,
-                                                         bigram_tokens = bigrams,
-                                                         trigram_tokens = trigrams))))
+  one_hot_narrative <- data.frame(t(apply(data_in[, which(names(data_in) == narrative_col_to_one_hot)], 1,
+                                          function(x) make_one_hot(row_data_in = x,
+                                                                   word_tokens = words,
+                                                                   bigram_tokens = bigrams,
+                                                                   trigram_tokens = trigrams))))
 
-  colnames(one_hot) <- gsub(" ", "_", c(words, bigrams, trigrams))
+  colnames(one_hot_narrative) <- gsub(" ", "_", c(words, bigrams, trigrams))
 
-  return(dplyr::bind_cols(data_in, one_hot) %>% dplyr::ungroup())
+  one_hot_complaint <- data.frame(t(apply(data_in[, which(names(data_in) == complaint_col_to_one_hot)], 1,
+                                          function(x) make_one_hot(row_data_in = x,
+                                                                   word_tokens = words,
+                                                                   bigram_tokens = bigrams,
+                                                                   trigram_tokens = trigrams))))
+
+  colnames(one_hot_complaint) <- gsub(" ", "_", c(words, bigrams, trigrams))
+  colnames(one_hot_complaint) <- paste0("pc_", names(one_hot_complaint))
+  one_hot_complaint[, -grep("_", names(one_hot_complaint))]
+
+  return(dplyr::bind_cols(data_in, bind_cols(one_hot_complaint, one_hot_narrative)) %>% dplyr::ungroup())
 
 }
 
