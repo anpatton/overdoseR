@@ -3,3 +3,4 @@
 overdoseR.Rproj
 ^\.travis\.yml$
 cran_comments.md
+*.png
