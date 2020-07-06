@@ -2,3 +2,4 @@
 ^\.Rproj\.user$
 overdoseR.Rproj
 ^\.travis\.yml$
+cran_comments.md

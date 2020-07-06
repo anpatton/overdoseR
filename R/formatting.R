@@ -217,12 +217,12 @@ format_multirow_ems_data <- function(data_in,
                      drug_related_pi = max(.data$drug_related_pi),
                      traumatic_injury_pi = max(.data$traumatic_injury_pi)) %>%
     dplyr::ungroup() %>%
-    dplyr::mutate(cardiac_flag = ifelse((grepl("cardiac", unlist(.[primary_impression_name]), ignore.case = TRUE) == TRUE
-                                         & opioid_agonist_success != 1), 1, 0)) %>%
-    dplyr::mutate(age_flag = ifelse(((unlist(.[patient_age_name]) < 18 | unlist(.[patient_age_name]) > 70)
-                                     & opioid_agonist_success != 1), 1, 0)) %>%
-    dplyr::mutate(cardiac_flag = ifelse(is.na(cardiac_flag) == TRUE, 0, cardiac_flag)) %>%
-    dplyr::mutate(age_flag = ifelse(is.na(age_flag) == TRUE, 0, age_flag))
+    dplyr::mutate(cardiac_flag = ifelse((grepl("cardiac", unlist(.data[primary_impression_name]), ignore.case = TRUE) == TRUE
+                                         & .data$opioid_agonist_success != 1), 1, 0)) %>%
+    dplyr::mutate(age_flag = ifelse(((unlist(.[patient_age_name]) < 18 | unlist(.data[patient_age_name]) > 70)
+                                     & .data$opioid_agonist_success != 1), 1, 0)) %>%
+    dplyr::mutate(cardiac_flag = ifelse(is.na(.data$cardiac_flag) == TRUE, 0, .data$cardiac_flag)) %>%
+    dplyr::mutate(age_flag = ifelse(is.na(.data$age_flag) == TRUE, 0, .data$age_flag))
 
   message(paste0("There are now ", nrow(formatted_data), " unique patient records. \n ---"))
   return(formatted_data)
