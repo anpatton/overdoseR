@@ -238,11 +238,7 @@ tune_logistic <- function(training_data,
   preds <- stats::predict(mod, newdata = testing_data_for_mod, type = "response")
 
   testing_data <- testing_data %>%
-    dplyr::mutate(predicted_probability = preds) %>%
-    dplyr::mutate(cardiac_flag = ifelse((grepl("cardiac", unlist(.[primary_impression_name])) == TRUE
-                                        & opioid_agonist_success != 1), 1, 0)) %>%
-    dplyr::mutate(age_flag = ifelse((unlist(.[patient_age_name]) < 18 | unlist(.[patient_age_name]) > 70
-                                         & opioid_agonist_success != 1), 1, 0))
+    dplyr::mutate(predicted_probability = preds)
 
   if(save_model == TRUE) {
 
