@@ -7,9 +7,12 @@
 one_hot_single_row_ems_data(
   data_in,
   col_to_one_hot = "care_narrative_adj",
-  words = pull(select(filter(high_value_terms, type == "word"), token)),
-  bigrams = pull(select(filter(high_value_terms, type == "bigram"), token)),
-  trigrams = pull(select(filter(high_value_terms, type == "trigram"), token))
+  words = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms,
+    -.data$type == "word"), -.data$token)),
+  bigrams = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms,
+    -.data$type == "bigram"), -.data$token)),
+  trigrams = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms,
+    -.data$type == "trigram"), -.data$token))
 )
 }
 \arguments{
@@ -30,5 +33,5 @@ Dataframe of inputted data and one-hot fields
 Creates one-hot-matrix of terms in narrative and binds to data.
 }
 \examples{
-one_hot_single_row_ems_data(formatted_data_frame)
+\dontrun{one_hot_single_row_ems_data(formatted_data_frame)}
 }

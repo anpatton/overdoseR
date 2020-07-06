@@ -51,5 +51,5 @@ One row per record dataframe of inputted data and one-hot fields
 Converts multi-row data to single row data
 }
 \examples{
-format_multirow_ems_data(data_in = raw_ems_data)
+\dontrun{format_multirow_ems_data(data_in = raw_ems_data)}
 }

@@ -14,7 +14,7 @@
 #'   \item tune_object - SVM tuning object
 #' }
 #' @examples
-#' tune_svm(training_data = train, testing_data = test, kernel_type = "linear")
+#' \dontrun{tune_svm(training_data = train, testing_data = test)}
 tune_svm <- function(training_data,
                      testing_data,
                      save_model = TRUE,
@@ -91,14 +91,14 @@ tune_svm <- function(training_data,
   message("Modeling: Start \n ---")
   message("Depending on size of data this might take several minutes \n ---")
 
-  mod_tune <- e1071::tune(svm,
-                          opioid ~ .,
+  mod_tune <- e1071::tune(e1071::svm,
+                          stats::as.formula(paste(target, ".", sep = " ~ ")),
                           kernel = "linear",
                           ranges = list(cost = c(0.11)),
                           scale = FALSE,
                           data = training_data)
 
-  mod <- e1071::svm(opioid ~ .,
+  mod <- e1071::svm(stats::as.formula(paste(target, ".", sep = " ~ ")),
                     data = training_data,
                     type = "C",
                     kernel = kernel_type,
@@ -109,7 +109,7 @@ tune_svm <- function(training_data,
   testing_data <- testing_data %>%
     dplyr::select(features)
 
-  preds <- predict(mod, newdata = testing_data, probability = TRUE)
+  preds <- stats::predict(mod, newdata = testing_data, probability = TRUE)
   preds <- unname(attr(preds, "probabilities")[, 2])
 
   testing_data <- testing_data %>%
@@ -147,7 +147,7 @@ tune_svm <- function(training_data,
 #'   \item tune_object - SVM tuning object
 #' }
 #' @examples
-#' tune_logistic(training_data = train, testing_data = test)
+#' \dontrun{tune_logistic(training_data = train, testing_data = test)}
 tune_logistic <- function(training_data,
                           testing_data,
                           save_model = TRUE,
@@ -217,22 +217,22 @@ tune_logistic <- function(training_data,
   }
 
   training_data <- training_data %>%
-    select(features)
+    dplyr::select(features)
 
   message("Modeling: Start \n ---")
-  mod <- glm(as.formula(paste(target, ".", sep = " ~ ")),
-             data = training_data,
-             family = "binomial")
+  mod <- stats::glm(stats::as.formula(paste(target, ".", sep = " ~ ")),
+                    data = training_data,
+                    family = "binomial")
   message("Modeling: Finished \n ---")
 
   testing_data <- testing_data %>%
-    select(features)
+    dplyr::select(features)
 
-  preds <- predict(mod, newdata = testing_data, type = "response")
+  preds <- stats::predict(mod, newdata = testing_data, type = "response")
 
   testing_data <- testing_data %>%
-    select(features) %>%
-    mutate(predicted_probability = preds)
+    dplyr::select(features) %>%
+    dplyr::mutate(predicted_probability = preds)
 
   if(save_model == TRUE) {
 
@@ -264,7 +264,7 @@ tune_logistic <- function(training_data,
 #'   \item results - Test data with predictions
 #' }
 #' @examples
-#' tune_logistic(training_data = train, testing_data = test)
+#' \dontrun{tune_xgboost(training_data = train, testing_data = test)}
 tune_xgboost <- function(training_data,
                          testing_data,
                          save_model = TRUE,
@@ -384,7 +384,7 @@ tune_xgboost <- function(training_data,
   mod <- mlr::train(learner = tuned_learner,
                     task = train_task)
 
-  preds <- predict(mod, test_task)$data$prob.1
+  preds <- stats::predict(mod, test_task)$data$prob.1
 
   testing_data <- testing_data %>%
     dplyr::select(features) %>%

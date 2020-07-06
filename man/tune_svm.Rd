@@ -44,5 +44,5 @@ List object with model and test data with predictions
 Train and test Supper Vector Machine classifier.
 }
 \examples{
-tune_svm(training_data = train, testing_data = test, kernel_type = "linear")
+\dontrun{tune_svm(training_data = train, testing_data = test)}
 }

@@ -1,0 +1,14 @@
+citHeader("To cite overdoseR in publications use:")
+
+citEntry(entry = "Unpublished",
+  title        = "Opioid Overdose Surveillance from EMS Data with {overdoseR}",
+  author       = personList(as.person("Andrew Patton")),
+  year         = "2020",
+  note         = "Adapted from: Development of Text-Based Algorithm for Opioid Overdose Identification in EMS Data. International Society for Disease Surveillance Annual Meeting 2019. Oral Presentation. Patton, A.",
+  url          = "https://github.com/anpatton/overdoseR",
+
+  textVersion  =
+  paste("Andrew Patton (2020).",
+        "Opioid Overdose Surveillance from EMS Data with {overdoseR}",
+        "URL https://github.com/anpatton/overdoseR.")
+)

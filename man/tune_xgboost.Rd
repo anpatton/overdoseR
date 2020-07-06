@@ -44,5 +44,5 @@ List object with model and test data with predictions
 Train and test XGBoost classifier.
 }
 \examples{
-tune_logistic(training_data = train, testing_data = test)
+\dontrun{tune_xgboost(training_data = train, testing_data = test)}
 }

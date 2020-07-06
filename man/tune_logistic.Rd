@@ -38,5 +38,5 @@ List object with model and test data with predictions
 Train and test logistic regression classifier.
 }
 \examples{
-tune_logistic(training_data = train, testing_data = test)
+\dontrun{tune_logistic(training_data = train, testing_data = test)}
 }
