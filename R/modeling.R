@@ -13,6 +13,7 @@
 #'   \item results - Test data with predictions
 #'   \item tune_object - SVM tuning object
 #' }
+#' @export
 #' @examples
 #' \dontrun{tune_svm(training_data = train, testing_data = test)}
 tune_svm <- function(training_data,
@@ -146,6 +147,7 @@ tune_svm <- function(training_data,
 #'   \item results - Test data with predictions
 #'   \item tune_object - SVM tuning object
 #' }
+#' @export
 #' @examples
 #' \dontrun{tune_logistic(training_data = train, testing_data = test)}
 tune_logistic <- function(training_data,
@@ -263,6 +265,7 @@ tune_logistic <- function(training_data,
 #'   \item tune_obj - XGBoost tuning object
 #'   \item results - Test data with predictions
 #' }
+#' @export
 #' @examples
 #' \dontrun{tune_xgboost(training_data = train, testing_data = test)}
 tune_xgboost <- function(training_data,

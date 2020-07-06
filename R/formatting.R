@@ -4,6 +4,7 @@
 #' @param stop_words Corpus of stop words to use, defaults to tidytext::stop_words
 #' @param remove_numbers Logical flag to remove numbers from text
 #' @return Cleaned narrative
+#' @export
 
 remove_stop_words <- function(str, stop_words, remove_numbers = TRUE) {
 
@@ -45,6 +46,7 @@ remove_stop_words <- function(str, stop_words, remove_numbers = TRUE) {
 #' @param bigram_tokens Bigrams to tokenize on
 #' @param trigram_tokens Trigrams to tokenize on
 #' @return Vector of one-hot terms
+#' @export
 
 make_one_hot <- function(row_data_in,
                          word_tokens,
@@ -80,6 +82,7 @@ make_one_hot <- function(row_data_in,
 #' @examples
 #' \dontrun{one_hot_single_row_ems_data(formatted_data_frame)}
 #' @importFrom rlang .data
+#' @export
 one_hot_single_row_ems_data <- function(data_in,
                                         col_to_one_hot = "care_narrative_adj",
                                         words = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms, -.data$type == "word"), -.data$token)),
@@ -117,8 +120,7 @@ one_hot_single_row_ems_data <- function(data_in,
 #' @examples
 #' \dontrun{format_multirow_ems_data(data_in = raw_ems_data)}
 #' @importFrom rlang .data
-
-
+#' @export
 format_multirow_ems_data <- function(data_in,
                                     event_id_name = "CAD Incident Number (eResponse.03)",
                                     patient_first_name = "Patient First Name (ePatient.03)",
