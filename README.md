@@ -80,4 +80,4 @@ xgb_res <- tune_xgboost(training_data = one_hot_result_training,
 
 The logistic regression result is a list with the model object and the predictions on the test data. The SVM and XGBoost results are a list with the model object, the tuning object, and the predictions on the test data. 
 
-***Very important note: the predictions are in terms of probability. It is paramount that you, the user, optimize the threshold for class prediction based on your clinical goals. It is extremely strongly recommended not to use a naive 0.5 threshold. ***
+**Very important note: the predictions are in terms of probability. It is paramount that you, the user, optimize the threshold for class prediction based on your clinical goals. It is extremely strongly recommended not to use a naive 0.5 threshold. **
