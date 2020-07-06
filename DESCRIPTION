@@ -4,7 +4,7 @@ Title: Predictive Modeling for Opioid Overdoses from EMS Data
 Version: 0.1.0
 Authors@R: person("Andrew", "Patton", email = "anpatt7@gmail.com",
                   role = c("aut", "cre"))
-Maintainer: <anpatt7@gmail.com>
+Maintainer: Andrew Patton <anpatt7@gmail.com>
 Description: overdoseR is an all in one model development and model usage
     package that is based on work conducted in 2018 for Marin County Department
     of Health and Human Services that created a near real-time surveillance
