@@ -239,7 +239,6 @@ tune_logistic <- function(training_data,
   preds <- stats::predict(mod, newdata = testing_data_for_mod, type = "response")
 
   testing_data <- testing_data %>%
-    #dplyr::select(features) %>%
     dplyr::mutate(predicted_probability = preds)
 
   if(save_model == TRUE) {
@@ -396,7 +395,6 @@ tune_xgboost <- function(training_data,
   preds <- stats::predict(mod, test_task)$data$prob.1
 
   testing_data <- testing_data %>%
-    #dplyr::select(features) %>%
     dplyr::mutate(predicted_probability = preds)
 
   if(save_model == TRUE) {
