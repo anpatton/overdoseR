@@ -84,18 +84,16 @@ The logistic regression model is fit with a `glm(family = "binomial")` and retur
 
 ## Support Vector Machine
 
-The SVM is fit using `e1071::tune` and `e1071::svm`. More information about how `e1071` works can be found [here](https://cran.r-project.org/web/packages/e1071/index.html). 
+The SVM is fit using `e1071::tune` and `e1071::svm`. More information about how `e1071` works can be found [here](https://cran.r-project.org/web/packages/e1071/index.html). The returned result from tuning is a list with the model object, tuning object, and the predictions on the test data.
 
 ## XGBoost
 
 The XGBoost model is tuned and fit (`classif.xgboost`) using a combination of functions from `xgboost`, `mlr`, and `ParamHelpers`. The returned result from tuning is a list with the model object, tuning object, and the predictions on the test data. In order to use the saved model properly on additional test data, you will need to run the following code (or something similar) on the dataframe to be used. 
 
 ```{r, eval = FALSE, echo = TRUE}
-
   new_testing_data <- new_testing_data %>%
     dplyr::select(features_that_you_want) %>%
     dplyr::mutate_all(as.integer)
-
 ```
 
 ### Very important note: the predictions are in terms of probability. It is paramount that you, the user, optimize the threshold for class prediction based on your clinical goals. It is extremely strongly recommended not to use a naive 0.5 threshold. 

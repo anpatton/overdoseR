@@ -89,6 +89,12 @@ tune_svm <- function(training_data,
   training_data <- training_data %>%
     dplyr::select(features)
 
+  if(!kernel_type %in% c("linear", "radial") | length(kernel_type) > 1) {
+
+    stop("Please choose either a 'linear' or 'radial' kernel.")
+
+  }
+
   message("Modeling: Start \n ---")
   message("Depending on size of data this might take several minutes \n ---")
 
