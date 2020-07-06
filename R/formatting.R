@@ -191,7 +191,6 @@ format_multirow_ems_data <- function(data_in,
   traumatic_injury_pi <- apply(formatted_data, 1,
                                function(x) grepl("traumatic", x[primary_impression_name], ignore.case = TRUE))
 
-
   formatted_data <- formatted_data %>%
     dplyr::mutate(opioid_agonist_admin = opioid_agonist_admin) %>%
     dplyr::mutate(opioid_pain_admin = opioid_pain_admin) %>%
@@ -224,8 +223,6 @@ format_multirow_ems_data <- function(data_in,
                                      & opioid_agonist_success != 1), 1, 0)) %>%
     dplyr::mutate(cardiac_flag = ifelse(is.na(cardiac_flag) == TRUE, 0, cardiac_flag)) %>%
     dplyr::mutate(age_flag = ifelse(is.na(age_flag) == TRUE, 0, age_flag))
-
-
 
   message(paste0("There are now ", nrow(formatted_data), " unique patient records. \n ---"))
   return(formatted_data)
