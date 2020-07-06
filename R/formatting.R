@@ -115,7 +115,7 @@ one_hot_single_row_ems_data <- function(data_in,
 #' @param medication_given_name Name of medication administered column, defaults to "Medication Given Description (eMedications.03)",
 #' @param medication_response_name Name of medication response column, defaults to "Medication Response (eMedications.07)",
 #' @param remove_numbers_from_text Logical flag to remove numbers from text
-#' @param stop_words Corpus of stop words, defaults to tidytext::stop_words
+#' @param stop_words Corpus of stop words, defaults to tidytext::stop_words (tidytext not required)
 #' @return One row per record dataframe of inputted data and one-hot fields
 #' @examples
 #' \dontrun{format_multirow_ems_data(data_in = raw_ems_data)}
@@ -132,7 +132,7 @@ format_multirow_ems_data <- function(data_in,
                                     medication_given_name = "Medication Given Description (eMedications.03)",
                                     medication_response_name = "Medication Response (eMedications.07)",
                                     remove_numbers_from_text = TRUE,
-                                    stop_words = tidytext::stop_words) {
+                                    stop_words = overdoseR:::stop_words) {
 
   message("Beginning data reformat \n ---")
   cols_to_keep <- c(event_id_name,

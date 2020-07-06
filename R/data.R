@@ -11,3 +11,14 @@
 #'   \item{type}{word, bigram, or trigram}
 #' }
 "high_value_terms"
+
+#' Stop Words
+#'
+#' Exact copy of tidytext::stop_words
+#'
+#' @format A data frame with 1149 rows and 2 variables:
+#' \describe{
+#'   \item{word}{actual token}
+#'   \item{lexicon}{lexicon the stop word comes from}
+#' }
+"stop_words"

@@ -22,7 +22,6 @@ RoxygenNote: 7.0.2
 Imports:
     dplyr (>= 0.8.4),
     stringr (>= 1.4.0),
-    tidytext (>= 0.2.4),
     mlr (>= 2.17.1),
     xgboost (>= 1.1.1.1),
     e1071 (>= 1.7-3),

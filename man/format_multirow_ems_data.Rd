@@ -16,7 +16,7 @@ format_multirow_ems_data(
   medication_given_name = "Medication Given Description (eMedications.03)",
   medication_response_name = "Medication Response (eMedications.07)",
   remove_numbers_from_text = TRUE,
-  stop_words = tidytext::stop_words
+  stop_words = overdoseR:::stop_words
 )
 }
 \arguments{
@@ -42,7 +42,7 @@ format_multirow_ems_data(
 
 \item{remove_numbers_from_text}{Logical flag to remove numbers from text}
 
-\item{stop_words}{Corpus of stop words, defaults to tidytext::stop_words}
+\item{stop_words}{Corpus of stop words, defaults to tidytext::stop_words (tidytext not required)}
 }
 \value{
 One row per record dataframe of inputted data and one-hot fields
