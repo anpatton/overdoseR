@@ -95,5 +95,6 @@ The XGBoost model is tuned and fit (`classif.xgboost`) using a combination of fu
     dplyr::select(features_that_you_want) %>%
     dplyr::mutate_all(as.integer)
 ```
+______________________________________________________________________________________________
 
-### Very important note: the predictions are in terms of probability. It is paramount that you, the user, optimize the threshold for class prediction based on your clinical goals. It is extremely strongly recommended not to use a naive 0.5 threshold. 
+### Very important note: the predictions for all models are raw probabilities. It is paramount that you, the user, optimize the threshold for class prediction based on your clinical goals. It is extremely strongly recommended not to use a naive 0.5 threshold. 
