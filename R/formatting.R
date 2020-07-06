@@ -85,9 +85,9 @@ make_one_hot <- function(row_data_in,
 #' @export
 one_hot_single_row_ems_data <- function(data_in,
                                         col_to_one_hot = "care_narrative_adj",
-                                        words = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms, -.data$type == "word"), -.data$token)),
-                                        bigrams = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms, -.data$type == "bigram"), -.data$token)),
-                                        trigrams = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms, -.data$type == "trigram"), -.data$token))) {
+                                        words = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms, .data$type == "word"), .data$token)),
+                                        bigrams = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms, .data$type == "bigram"), .data$token)),
+                                        trigrams = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms, .data$type == "trigram"), .data$token))) {
 
   message("Tokenizing narrative and one-hot encoding high value terms. \n --- ")
   one_hot <- data.frame(t(apply(data_in[, which(names(data_in) == col_to_one_hot)], 1,
@@ -146,21 +146,21 @@ format_multirow_ems_data <- function(data_in,
                     medication_response_name)
 
   message("Reformatting care narrative  \n ---")
-  care_narrative_adj <- tolower(unlist(apply(data_in[, which(names(data_in) == care_narrative_name)],
+  care_narrative_adj_list <- tolower(unlist(apply(data_in[, which(names(data_in) == care_narrative_name)],
                                              MARGIN = 1,
                                              function(x) remove_stop_words(x, stop_words = stop_words,
                                                                      remove_numbers = remove_numbers_from_text))))
 
   message("Reformatting primary complaint  \n ---")
-  primary_complaint_adj <- tolower(unlist(apply(data_in[, which(names(data_in) == primary_complaint_name)],
+  primary_complaint_adj_list <- tolower(unlist(apply(data_in[, which(names(data_in) == primary_complaint_name)],
                                                 MARGIN = 1,
                                                 function(x) remove_stop_words(x, stop_words = stop_words,
                                                                         remove_numbers = remove_numbers_from_text))))
 
   formatted_data <- data_in %>%
     dplyr::select(cols_to_keep) %>%
-    dplyr::mutate(care_narrative_adj = care_narrative_adj) %>%
-    dplyr::mutate(primary_complaint_adj = primary_complaint_adj) %>%
+    dplyr::mutate(care_narrative_adj = care_narrative_adj_list) %>%
+    dplyr::mutate(primary_complaint_adj = primary_complaint_adj_list) %>%
     dplyr::group_by(!!dplyr::sym(event_id_name),
              !!dplyr::sym(patient_first_name),
              !!dplyr::sym(patient_last_name),
@@ -172,7 +172,7 @@ format_multirow_ems_data <- function(data_in,
     dplyr::ungroup() %>%
     unique()
 
-  rm(care_narrative_adj, care_narrative_adj)
+  rm(care_narrative_adj_list, care_narrative_adj_list)
 
   message("Tabulating medication administrations and responses  \n ---")
   med_admin_col <- which(names(formatted_data) == medication_given_name)
@@ -208,17 +208,17 @@ format_multirow_ems_data <- function(data_in,
                     !!dplyr::sym(patient_last_name),
                     !!dplyr::sym(patient_age_name),
                     !!dplyr::sym(primary_impression_name),
-                    primary_complaint_adj,
+                    .data$primary_complaint_adj,
                     !!dplyr::sym(primary_complaint_name),
                     !!dplyr::sym(care_narrative_name),
-                    -.data$care_narrative_adj,
-                    -.data$person_event_id) %>%
-    dplyr::summarise(opioid_agonist_admin = sum(-.data$opioid_agonist_admin, na.rm = TRUE),
-                     benzodiazepine_admin = sum(-.data$benzodiazepine_admin, na.rm = TRUE),
-                     epinephrine_admin = sum(-.data$epinephrine_admin, na.rm = TRUE),
-                     opioid_agonist_success = sum(-.data$opioid_agonist_success, na.rm = TRUE),
-                     drug_related_pi = max(-.data$drug_related_pi),
-                     traumatic_injury_pi = max(-.data$traumatic_injury_pi)) %>%
+                    .data$care_narrative_adj,
+                    .data$person_event_id) %>%
+    dplyr::summarise(opioid_agonist_admin = sum(.data$opioid_agonist_admin, na.rm = TRUE),
+                     benzodiazepine_admin = sum(.data$benzodiazepine_admin, na.rm = TRUE),
+                     epinephrine_admin = sum(.data$epinephrine_admin, na.rm = TRUE),
+                     opioid_agonist_success = sum(.data$opioid_agonist_success, na.rm = TRUE),
+                     drug_related_pi = max(.data$drug_related_pi),
+                     traumatic_injury_pi = max(.data$traumatic_injury_pi)) %>%
     dplyr::ungroup()
 
   message(paste0("There are now ", nrow(formatted_data), " unique patient records. \n ---"))
