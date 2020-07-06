@@ -1,7 +1,7 @@
 
 # What does overdoseR do?
 
-This package is based entirely on a system outlined in the following talks and presentations.
+This package is based entirely on the code underpinning the system outlined in the following talks and presentations.
 
 *University of Miami Department of Public Health Sciences. Distinguished Lecture Series. Machine Learning and EMS Data for Opioid Overdose Surveillance. February 2020. Patton, A.*
 
@@ -15,7 +15,7 @@ Briefly, it is designed to serve as the predictive modeling component for an in-
 
 # How does overdoseR work?
 
-In general, overdoseR works through a combination of several factors built primarily on the contents of the care narrative, medication administered, and primary impression fields. 
+In general, overdoseR works through a combination of several factors built primarily on the contents of the care narrative, medication administered, and primary impression fields. Currently, overdoseR is only configured for opioid related events, but benzoiazepine, methamphetamine, alcohol, and 'other' drugs are in the works.
 
 ## 1) High Value Terms 
 
