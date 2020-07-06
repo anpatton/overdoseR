@@ -6,7 +6,8 @@
 \usage{
 one_hot_single_row_ems_data(
   data_in,
-  col_to_one_hot = "care_narrative_adj",
+  narrative_col_to_one_hot = "care_narrative_adj",
+  complaint_col_to_one_hot = "primary_complaint_adj",
   words = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms,
     .data$type == "word"), .data$token)),
   bigrams = dplyr::pull(dplyr::select(dplyr::filter(overdoseR:::high_value_terms,
@@ -18,16 +19,16 @@ one_hot_single_row_ems_data(
 \arguments{
 \item{data_in}{Formatted data to use}
 
-\item{col_to_one_hot}{Field name for specific narrative to one-hot}
-
 \item{words}{Words to tokenize on, defaults to high_value_terms}
 
 \item{bigrams}{Bigrams to tokenize on, defaults to high_value_terms}
 
 \item{trigrams}{Trigrams to tokenize on, defaults to high_value_terms}
+
+\item{col_to_one_hot}{Field name for specific narrative to one-hot}
 }
 \value{
-Dataframe of inputted data and one-hot fields
+Dataframe of inputted data and one-hot fields from narrative and primary complaint (pc_)
 }
 \description{
 Creates one-hot-matrix of terms in narrative and binds to data.
