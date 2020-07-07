@@ -5,14 +5,17 @@ Version: 0.1.0
 Authors@R: person("Andrew", "Patton", email = "anpatt7@gmail.com",
                   role = c("aut", "cre"))
 Maintainer: Andrew Patton <anpatt7@gmail.com>
-Description: This package (overdoseR) is intended to be the first step in 
+Description: This package is intended to be the first step in 
     developing an in-house opioid overdose surveillance system for research 
     and/or outreach based on Emergency Medical Services (EMS) data. 
     It is an improvement of work conducted from 2017-2019 for the Marin County
     Department of Health and Human Services that created a 
     near real-time surveillance and outreach system for multiple drugs of 
-    public health concern from EMS data. It can be used to create custom models
-    based on data from your own jurisdiction and can also directly use pre-validated
+    public health concern from EMS data (Development of Text-Based Algorithm 
+    for Opioid Overdose Identification in EMS Data. International Society 
+    for Disease Surveillance Annual Meeting 2019. Oral Presentation. Patton, A). 
+    Surveillance systems from overdoseR can created from custom models based on data 
+    from your own jurisdiction and can also directly use pre-validated
     and tuned models from  Marin County Department of Health and Human Services. 
     In practice from 2017-2019 in a live surveillance system, these models and 
     their variations were over 99% specific and 95% sensitive for opioid overdoses 
